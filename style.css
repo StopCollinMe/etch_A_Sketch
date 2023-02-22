@@ -1,0 +1,49 @@
+:root{
+    --grid-rows:1;
+    --grid-cols:1;
+}
+
+h1{
+    display: flex;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin: 0;
+}
+
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+}
+
+#container{
+    display: grid;
+    grid-gap: 1px;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    height: 550px;
+    width: 960px;
+    padding-top: 0;
+    margin: 0;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid lightsalmon;
+}
+
+.grid-cell{
+    display: flex;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 1px;
+    padding-left: 1px;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    user-select: none;
+    border: 1px solid lightsalmon;
+}
