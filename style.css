@@ -26,10 +26,10 @@ body{
     grid-gap: 1px;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    height: 550px;
-    width: 960px;
+    height: 400px;
+    width: 400px;
     padding-top: 0;
-    margin: 0;
+    margin-top: 75px;
     justify-content: center;
     align-content: center;
     border: 1px solid lightsalmon;
@@ -37,10 +37,10 @@ body{
 
 .grid-cell{
     display: flex;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-right: 1px;
-    padding-left: 1px;
+    padding-top: 1fr;
+    padding-bottom: 1fr;
+    padding-right: 1fr;
+    padding-left: 1fr;
     margin: 0;
     text-align: center;
     justify-content: center;
