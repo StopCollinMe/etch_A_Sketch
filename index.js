@@ -12,24 +12,37 @@ function makeContainers(rows,cols){
 
 let isMouseDown = false;
 
-function colorChanger(){
-    let red, green, blue;
-        red = (Math.floor(Math.random() * 256));
-        green = (Math.floor(Math.random() * 256));
-        blue = (Math.floor(Math.random() * 256));
+//Have to study this logic
+//New things learned .map, regex, Number
+//Understanding the complexity of applying cell from addHoverColor() to colorChanger(cell)
+function colorChanger(cell){
+    let color = cell.style.background || 'rgb(255,255,255)';
+    let [red, green, blue] = color.match(/\d+/g).map(Number);
+    if(!cell.colored){
+        red = Math.floor(Math.random() * 256);
+        green = Math.floor(Math.random() * 256);
+        blue = Math.floor(Math.random() * 256);
+        cell.colored = true;
+    }else{
+        let darken = 0.1;
+        red = Math.max(Math.floor(red - (red * darken)),0);
+        green = Math.max(Math.floor(green - (green * darken)),0);
+        blue = Math.max(Math.floor(blue - (blue * darken)),0);
+    }
     return `rgb(${red},${green},${blue})`;
 }
 
 function addHoverColor(){
     hColor = document.querySelectorAll('.grid-cell');
     hColor.forEach(cell => {
+        cell.colored = false;
         cell.addEventListener('mousedown', () =>{
             isMouseDown = true;
-            cell.style.background = colorChanger();
+            cell.style.background = colorChanger(cell);
         });
         cell.addEventListener('mouseover', () =>{
             if(isMouseDown){
-                cell.style.background = colorChanger();
+                cell.style.background = colorChanger(cell);
             }
         });
         cell.addEventListener('mouseup', ()=>{
